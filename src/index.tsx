@@ -6,7 +6,7 @@ import { WidgetsProvider } from '@sitecore-search/react';
 import SearchResultsWidget from './SearchResultsStyled';
 import type { Environment } from "@sitecore-search/data";
 import { createTheme } from "@sitecore-search/ui";
-import logo from './SAG-logo-header.svg';
+import logo from './logo.svg';
 
 const DISCOVER_CONFIG = {
   env: process.env.REACT_APP_SEARCH_ENV,
