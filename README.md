@@ -1,4 +1,4 @@
-# Demo project for SCUG London Search talk, November 2023
+# Sitecore Search Example
 
 This repository has an example implementation using the `Sitecore Search JS SDK` which
 integrates with Sitecore Search via cli-created Input Search Results component, a  Basic Search Results widget adding a search input at the top. Visitors can search without page refresh or redirect.
