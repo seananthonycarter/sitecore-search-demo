@@ -6,44 +6,21 @@ import { WidgetsProvider } from '@sitecore-search/react';
 import SearchResultsWidget from './SearchResultsStyled';
 import type { Environment } from "@sitecore-search/data";
 import { createTheme } from "@sitecore-search/ui";
-import logo from './logo.svg';
+import { IsSearchEnabled, SEARCH_CONFIG } from './lib/search'
 
-const DISCOVER_CONFIG = {
-  env: process.env.REACT_APP_SEARCH_ENV,
-  customerKey: process.env.REACT_APP_CUSTOMER_KEY,
-  apiKey: process.env.REACT_APP_SEARCH_API_KEY,
-};
+const { style } = createTheme();
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('site-search') as HTMLElement
 );
-
-/*Override default theme styles in this section as per https://developers.sitecorecloud.io/search-sdk/react/latest/storybook/index.html?path=/story/theme-and-styles-default-theme--page*/
-const customTheme = createTheme({
-  palette: {
-    primary: {
-      main: '#333',
-      light: '#EEECFB',
-      dark: '#4A37D5',
-      contrastText: '#fff',
-    },
-  }
-});
-
-const { style } = customTheme;
 
 root.render(
   <React.StrictMode>
-      <div className="header">
-        <a className="SiteHeader-brand" href="/">
-          <img src={logo} alt="Website Logo" />
-        </a>
-      </div>
       <div style={style}>
         <WidgetsProvider
-               env={DISCOVER_CONFIG.env as Environment}
-               customerKey={DISCOVER_CONFIG.customerKey}
-               apiKey={DISCOVER_CONFIG.apiKey}
+               env={SEARCH_CONFIG.env as Environment}
+               customerKey={SEARCH_CONFIG.customerKey}
+               apiKey={SEARCH_CONFIG.apiKey}
           >     
             <SearchResultsWidget rfkId="rfkid_7" />
           </WidgetsProvider>
@@ -55,3 +32,6 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
